@@ -2,6 +2,7 @@
 <?php 
 $systemvars=$this->attendance_model->get_vars();
 
+
 foreach($systemvars as $vars){
 
  if($vars['variable']=="System Name"){
@@ -130,6 +131,10 @@ else if($vars['variable']=="Date to Fetch IHRIS Data"){
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- Messages: style can be found in dropdown.less-->
+          <p class="" style="float:left; margin-left:2px;">
+           <button type="button" class="btn btn-success btn-sm btn-outline" style="margin-top:0.8em; margin-right:7px;">Last iHRIS SYNC: <?php echo $this->attendance_model->last_sync();?></button>   
+              
+            </p>
           <?php if($_SESSION['role']=='District-Officer' or $_SESSION['role']=='sadmin' ){  ?>
           
           <li>

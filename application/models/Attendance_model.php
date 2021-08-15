@@ -88,6 +88,13 @@ class 	Attendance_model extends CI_Model
 		$this->db->insert('duty_rosta', $importdata);
 	}
 
+	public function last_sync()
+	{
+
+		$query=$this->db->query("select last_gen from ihrisdata limit 1");
+		return $query->row()->last_gen;
+	}
+
 
 
 	public function get_facility()
