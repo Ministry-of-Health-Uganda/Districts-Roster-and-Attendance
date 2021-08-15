@@ -22,7 +22,7 @@ public function rostatoAttend(){
    if(!empty($ymonth)){ 
   
     //poplulate actuals
-    $query=$this->db->query("INSERT INTO actuals( entry_id, schedule_id, ihris_pid, actuals.date, facility_id ) 
+    $query=$this->db->query("REPLACE INTO actuals( entry_id, schedule_id, ihris_pid, actuals.date, facility_id ) 
     SELECT entry_id,schedule_id,duty_rosta.ihris_pid,duty_rosta.duty_date,facility_id from duty_rosta WHERE schedule_id 
     IN(17,18,19,20,21) and duty_rosta.duty_date like '$ymonth%' AND duty_rosta.entry_id NOT IN(SELECT entry_id from actuals)");
     $rowsnow=$this->db->affected_rows();
