@@ -3,27 +3,19 @@
 class Rostatoattendance extends CI_Controller{
    //Get duty rosta records to attendance information
    //runs montly to generate past months data
-public function rostatoAttend(){
-    //auth
-    $last = $this->uri->total_segments();
-    $record_num = $this->uri->segment($last);
-   // print_r($record_num);
-    $authkey=array('uyey8187167817','787167188yuehd');
-   
+
+   public function rostatoAttend(){
     //To set custom month uncomment below and set  ymonth of choice
     //$ymonth="2019-08"."-";
     // comment  the file below on line 145 if custom ymonth is set.
-    $ymonth=date('Y-m-', strtotime('last month'));
-   
-   //$ymonth= "2019-07";
-   // print_r($ymonth);
+    $ymonth=date('Y-m')."-";
   
     
    if(!empty($ymonth)){ 
   
     //poplulate actuals
-    $query=$this->db->query("REPLACE INTO actuals( entry_id, schedule_id, ihris_pid, actuals.date, facility_id ) 
-    SELECT entry_id,schedule_id,duty_rosta.ihris_pid,duty_rosta.duty_date,facility_id from duty_rosta WHERE schedule_id 
+    $query=$this->db->query("INSERT INTO actuals( entry_id, facility_id, ihris_pid, schedule_id, actuals.date, actuals.end ) 
+    SELECT entry_id,facility_id,ihris_pid,schedule_id,duty_rosta.duty_date,duty_rosta.end from duty_rosta WHERE schedule_id 
     IN(17,18,19,20,21) and duty_rosta.duty_date like '$ymonth%' AND duty_rosta.entry_id NOT IN(SELECT entry_id from actuals)");
     $rowsnow=$this->db->affected_rows();
     if($query){
@@ -36,7 +28,7 @@ public function rostatoAttend(){
   }
   }
     
-    $query=$this->db->query("Update actuals set schedule_id='25' WHERE schedule_id IN(18,19,20,21)");
+    $query=$this->db->query("Update actuals set schedule_id='25', color='#29910d' WHERE schedule_id IN(18,19,20,21)");
     
       $rowsnow=$this->db->affected_rows();
       if($query){
@@ -48,7 +40,7 @@ public function rostatoAttend(){
                   
     }
   
-    $query=$this->db->query("Update actuals set schedule_id='24' WHERE schedule_id='17'");
+    $query=$this->db->query("Update actuals set schedule_id='24', color='#d1a110' WHERE schedule_id='17'");
     
       $rowsnow=$this->db->affected_rows();
       if($query){
@@ -63,6 +55,7 @@ public function rostatoAttend(){
     
   
   }
+
   public function markAttendance(){
 
     //poplulate actuals
