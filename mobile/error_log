@@ -1,0 +1,6 @@
+[10-Jul-2018 13:15:46 UTC] PHP Fatal error:  Call to undefined function now() in /home2/clientsp/public_html/hrattendance/mobile/application/modules/jobs/controllers/Jobs.php on line 237
+[11-Jul-2018 14:04:20 UTC] PHP Parse error:  syntax error, unexpected '$attendnace' (T_VARIABLE) in /home2/clientsp/public_html/hrattendance/mobile/application/modules/jobs/views/print_att.php on line 133
+[11-Jul-2018 14:04:53 UTC] PHP Parse error:  syntax error, unexpected '$attendnace' (T_VARIABLE) in /home2/clientsp/public_html/hrattendance/mobile/application/modules/jobs/views/print_att.php on line 137
+[11-Jul-2018 14:05:07 UTC] PHP Parse error:  syntax error, unexpected '$attendnace' (T_VARIABLE) in /home2/clientsp/public_html/hrattendance/mobile/application/modules/jobs/views/print_att.php on line 137
+[11-Jul-2018 22:03:43 UTC] PHP Fatal error:  Call to a member function result() on a non-object in /home2/clientsp/public_html/hrattendance/mobile/application/modules/districts/controllers/Districts.php on line 34
+[11-Jul-2018 22:03:54 UTC] PHP Fatal error:  Call to a member function result() on a non-object in /home2/clientsp/public_html/hrattendance/mobile/application/modules/districts/controllers/Districts.php on line 34
