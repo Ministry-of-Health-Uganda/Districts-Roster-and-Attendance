@@ -154,8 +154,8 @@ foreach ($departments as $department) {
 			 
 			    
 			    <?php 
-if(count($duties)>0)
-{
+// if(count($duties)>0)
+// {
 
 
 
@@ -163,7 +163,7 @@ if(count($duties)>0)
 			<a href="<?php echo base_url() ?>rosta/print_report/<?php echo $year."-".$month; ?>" style="display:none;" class="done btn btn-success btn-sm" target="_blank" ><i class="fa fa-print"></i>Print</a>
 
 
-<?php   } ?>
+<?php   //} ?>
 			    
 		
 	</div>
