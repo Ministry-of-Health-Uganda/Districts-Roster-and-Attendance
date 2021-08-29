@@ -92,7 +92,7 @@ class 	Attendance_model extends CI_Model
 	{
 
 		$query=$this->db->query("select last_update from ihrisdata limit 1");
-		return $query->row()->last_gen;
+		return $query->row()->last_update;
 	}
 
 
