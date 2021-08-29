@@ -91,7 +91,7 @@ class 	Attendance_model extends CI_Model
 	public function last_sync()
 	{
 
-		$query=$this->db->query("select last_gen from ihrisdata limit 1");
+		$query=$this->db->query("select last_update from ihrisdata limit 1");
 		return $query->row()->last_gen;
 	}
 
