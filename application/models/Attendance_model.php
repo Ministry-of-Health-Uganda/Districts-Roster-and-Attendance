@@ -354,10 +354,7 @@ class 	Attendance_model extends CI_Model
 
 	public function fetchTimeLogs($limit, $start, $search_data = FALSE)
 	{
-		$query = $this->db->query("INSERT INTO actuals (date, entry_id, facility_id, ihris_pid, schedule_id)
-		SELECT clk_log.date, clk_log.entry_id, clk_log.facility_id, clk_log.ihris_pid, schedules.schedule_id
-		FROM clk_log,schedules where clk_log.entry_id NOT IN (select entry_id from actuals) and schedules.schedule_id=22");
-
+	
 		$facility = $this->facility; //current facility
 
 

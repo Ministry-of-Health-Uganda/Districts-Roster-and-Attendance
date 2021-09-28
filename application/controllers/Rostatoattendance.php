@@ -71,7 +71,11 @@ public function rostatoAttend(){
     //  actuals.date) SELECT DISTINCT CONCAT( time_log.date, ihrisdata.ihris_pid ) AS entry_id, ihrisdata.facility_id, 
     //  ihrisdata.department_id, ihrisdata.ihris_pid, schedules.schedule_id, schedules.color, time_log.date, DATE_ADD(date, INTERVAL 01 DAY) FROM ihrisdata, 
     //  time_log, schedules WHERE ihrisdata.ipps = time_log.ipps AND schedules.schedule_id =22 AND CONCAT( time_log.date, ihrisdata.ihris_pid )
-    //   NOT IN (SELECT entry_id from actuals)");   
+    //   NOT IN (SELECT entry_id from actuals)");  
+    // $query = $this->db->query("INSERT INTO actuals (date, entry_id, facility_id, ihris_pid, schedule_id)
+		// SELECT clk_log.date, clk_log.entry_id, clk_log.facility_id, clk_log.ihris_pid, schedules.schedule_id
+		// FROM clk_log,schedules where clk_log.entry_id NOT IN (select entry_id from actuals) and schedules.schedule_id=22");
+ 
       $query=$this->db->query("INSERT INTO actuals (date, entry_id, facility_id, ihris_pid, schedule_id)
       SELECT clk_log.date, clk_log.entry_id, clk_log.facility_id, clk_log.ihris_pid, schedules.schedule_id
       FROM clk_log,schedules where clk_log.entry_id NOT IN (select entry_id from actuals) and schedules.schedule_id=22");

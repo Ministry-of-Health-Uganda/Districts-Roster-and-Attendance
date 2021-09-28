@@ -7,8 +7,8 @@ class Api extends CI_Controller {
     {
         // Call the Model constructor
         parent::__construct();
+        $this->load->model('rosta_model');
 
-      
       
     }
     public function get_ihrisdata(){
@@ -89,6 +89,15 @@ public function curlgetHttp($endpoint,$headers,$body){
        $decodedResponse =json_decode($result);
        return $decodedResponse;
 }
+
+    public function person_attend($from,$to) 
+    {
+       echo json_encode($this->rosta_model->get_attendance($from,$to));
+    }
+    public function person_roster($from,$to) 
+    {
+        echo json_encode($this->rosta_model->get_roster($from,$to));
+    }
   
 
 }
