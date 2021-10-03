@@ -6,13 +6,29 @@ class Rosta_model extends CI_Model
 
 
 	public function get_attendance($from,$to){
-        $query=$this->db->query("SELECT * FROM att_sums_final WHERE rdate between '$from' AND '$to'");
+        $query=$this->db->query("SELECT 	
+		entry_id,
+		ihris_pid,
+		facility_id,
+		rdate as duty_date,
+		present as P,
+		offduty as O,
+		official as R, 
+		leaves as L FROM att_sums_final WHERE rdate between '$from' AND '$to'");
     return $query->result();
 
     }
     public function get_roster($from,$to){
       
-        $query=$this->db->query("SELECT * FROM att_roster_final WHERE dutydate between '$from' AND '$to'");
+        $query=$this->db->query("SELECT
+		entry_id,
+		person_id,
+		facility_id,
+		dutydate as duty,
+		wdays as D,
+		offs as O,
+		mleave as A,
+		other as Z FROM att_roster_final WHERE dutydate between '$from' AND '$to'");
     return $query->result();
 
     }
