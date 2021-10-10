@@ -24,7 +24,7 @@ class Rosta_model extends CI_Model
 		entry_id,
 		person_id as ihris_pid,
 		facility_id,
-		dutydate as duty,
+		dutydate as duty_date,
 		wdays as D,
 		offs as O,
 		mleave as A,
