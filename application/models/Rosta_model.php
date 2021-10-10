@@ -22,7 +22,7 @@ class Rosta_model extends CI_Model
       
         $query=$this->db->query("SELECT
 		entry_id,
-		person_id,
+		person_id as ihris_pid,
 		facility_id,
 		dutydate as duty,
 		wdays as D,
