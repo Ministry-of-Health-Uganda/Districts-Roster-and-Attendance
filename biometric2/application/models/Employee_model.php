@@ -372,12 +372,24 @@ Class Employee_model extends CI_Model
                     'facility_id' => $data['facilityId'],
                     'time_in' => $data['clockin_time'],
                     'date' => $date,
-                    'time_out' => $data['clockout_time'],
                     'location' => $data['location'],
                     'source' => $data['source']
                 );
 
                 $this->db->insert('clk_log', $data);
+
+
+                $query=$this->db->query("SELECT entry_id from clk_log where entry_id='$entry_id'");
+                $entry_id=$query->result();
+                
+                foreach($entry_id as $entry){
+                    $this->db->set('time_out', "$data['clockin_time']");
+                    $this->db->where("time_in <","$data['clockin_time']");
+                    $this->db->where('entry_id', "$entry->entry_id");
+                    $query=$this->db->update('clk_log');
+
+   
+                }
 
                 if($this->db->affected_rows() > 0) {
                     $response['status'] = 'SUCCESS';
@@ -406,11 +418,24 @@ Class Employee_model extends CI_Model
                     'facility_id' => $data['facilityId'],
                     'date' => $data['clockin_time'],
                     'time_in' => $data['clockin_time'],
-                    'time_out' => $data['clockout_time'],
                     'source' => $data['source']
                 );
 
                 $this->db->insert('clk_log', $data);
+                
+                $query=$this->db->query("SELECT entry_id from clk_log where entry_id='$entry_id'");
+                $entry_id=$query->result();
+                
+                foreach($entry_id as $entry){
+                    $this->db->set('time_out', "$data['clockin_time']");
+                    $this->db->where("time_in <","$data['clockin_time']");
+                    $this->db->where('entry_id', "$entry->entry_id");
+                    $query=$this->db->update('clk_log');
+
+   
+                }
+
+
                 if($this->db->affected_rows() > 0) {
                     $response['status'] = 'SUCCESS';
                     $response['message'] = 'User clocked in';
