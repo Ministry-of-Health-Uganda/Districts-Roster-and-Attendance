@@ -376,11 +376,9 @@ Class Employee_model extends CI_Model
                     'source' => $data['source']
                 );
 
-                $this->db->insert('clk_log', $data);
-
-
-               
                 $query=$this->db->query("SELECT entry_id from clk_log where entry_id='$entry_id'");
+                $rows=$query->num_rows();
+                if($rows>0){
                 $entry_id=$query->result();
                 $timelog=$data['clockin_time'];
                 foreach($entry_id as $entry)
@@ -392,6 +390,15 @@ Class Employee_model extends CI_Model
 
    
                 }
+               }
+               else{
+
+                $this->db->insert('clk_log', $data);
+               }
+
+
+               
+                
 
                 if($this->db->affected_rows() > 0) {
                     $response['status'] = 'SUCCESS';
