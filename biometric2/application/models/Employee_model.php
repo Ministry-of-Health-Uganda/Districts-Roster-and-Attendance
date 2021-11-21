@@ -382,11 +382,11 @@ Class Employee_model extends CI_Model
                
                 $query=$this->db->query("SELECT entry_id from clk_log where entry_id='$entry_id'");
                 $entry_id=$query->result();
-                
+                $timelog=$data['clockin_time'];
                 foreach($entry_id as $entry)
                 {
-                    $this->db->set('time_out', "$data['clockin_time']");
-                    $this->db->where("time_in <","$data['clockin_time']");
+                    $this->db->set('time_out', "$timelog");
+                    $this->db->where("time_in <","$timelog");
                     $this->db->where('entry_id', "$entry->entry_id");
                     $query=$this->db->update('clk_log');
 
