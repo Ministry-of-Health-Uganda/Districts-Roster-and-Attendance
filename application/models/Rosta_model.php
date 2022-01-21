@@ -29,8 +29,7 @@ class Rosta_model extends CI_Model
 		dutydate as duty_date,
 		wdays as D,
 		offs as O,
-		mleave as A,
-		other as Z FROM att_roster_final WHERE dutydate between '$from' AND '$to'");
+		mleave + other as L FROM att_roster_final WHERE dutydate between '$from' AND '$to'");
     return $query->result();
 
     }
