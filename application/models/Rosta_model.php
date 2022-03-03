@@ -16,7 +16,7 @@ class Rosta_model extends CI_Model
 		present as P,
 		offduty as O,
 		official as R, 
-		leaves as L FROM att_sums_final WHERE rdate between '$from' AND '$to' where att_sums_final.ihris_pid=ihrisdata.ihris_pid");
+		leaves as L FROM att_sums_final,ihrisdata WHERE rdate between '$from' AND '$to' where att_sums_final.ihris_pid=ihrisdata.ihris_pid");
     return $query->result();
 
     }
@@ -33,7 +33,7 @@ class Rosta_model extends CI_Model
 		dutydate as duty_date,
 		wdays as D,
 		offs as O,
-		mleave as L, other as Z FROM att_roster_final WHERE dutydate between '$from' AND '$to'  where att_roster_final.ihris_pid=ihrisdata.ihris_pid");
+		mleave as L, other as Z FROM ,ihrisdata WHERE dutydate between '$from' AND '$to'  where att_roster_final.ihris_pid=ihrisdata.ihris_pid");
     return $query->result();
 
     }
