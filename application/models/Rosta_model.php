@@ -8,9 +8,9 @@ class Rosta_model extends CI_Model
 	public function get_attendance($from,$to){
         $query=$this->db->query("SELECT 	
 		entry_id,
-		ihris_pid,
+		att_sums_final.ihris_pid,
 		att_sums_final.facility_id,
-		att_sums_final.facility,
+		facility,
 		district,
 		rdate as duty_date,
 		present as P,
