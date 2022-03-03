@@ -16,7 +16,7 @@ class Rosta_model extends CI_Model
 		present as P,
 		offduty as O,
 		official as R, 
-		leaves as L FROM att_sums_final,ihrisdata WHERE rdate between '$from' AND '$to'  att_sums_final.ihris_pid=ihrisdata.ihris_pid");
+		leaves as L FROM att_sums_final,ihrisdata WHERE rdate between '$from' AND '$to'  and att_sums_final.ihris_pid=ihrisdata.ihris_pid");
     return $query->result();
 
     }
