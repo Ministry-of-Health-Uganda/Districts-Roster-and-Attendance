@@ -9,14 +9,14 @@ class Rosta_model extends CI_Model
         $query=$this->db->query("SELECT 	
 		entry_id,
 		ihris_pid,
-		facility_id,
-		facility,
+		att_sums_final.facility_id,
+		att_sums_final.facility,
 		district,
 		rdate as duty_date,
 		present as P,
 		offduty as O,
 		official as R, 
-		leaves as L FROM att_sums_final,ihrisdata WHERE rdate between '$from' AND '$to' where att_sums_final.ihris_pid=ihrisdata.ihris_pid");
+		leaves as L FROM att_sums_final,ihrisdata WHERE rdate between '$from' AND '$to'  att_sums_final.ihris_pid=ihrisdata.ihris_pid");
     return $query->result();
 
     }
@@ -26,14 +26,14 @@ class Rosta_model extends CI_Model
       
         $query=$this->db->query("SELECT
 		entry_id,
-		person_id as ihris_pid,
-		facility_id,
+		att_sums_final.person_id as ihris_pid,
+		att_sums_final.facility_id,
 		facility,
 		district,
 		dutydate as duty_date,
 		wdays as D,
 		offs as O,
-		mleave as L, other as Z FROM att_roster_final,ihrisdata WHERE dutydate between '$from' AND '$to'  where att_roster_final.ihris_pid=ihrisdata.ihris_pid");
+		mleave as L, other as Z FROM att_roster_final,ihrisdata WHERE dutydate between '$from' AND '$to'  and att_roster_final.ihris_pid=ihrisdata.ihris_pid");
     return $query->result();
 
     }
