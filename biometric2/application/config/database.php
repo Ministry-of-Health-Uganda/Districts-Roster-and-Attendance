@@ -7,10 +7,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'manageatt',
-	'password' => 'manage123',
-	'database' => 'dutyroster',
+	'hostname' => '172.27.1.229',
+	'username' => 'ihris',
+	'password' => 'ihris@2022systems',
+	'database' => 'attendance_districts',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
